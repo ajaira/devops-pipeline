@@ -68,7 +68,7 @@ pipeline {
         }
         stage('Unit Tests') {
             when {
-                anyOf { branch 'master'; branch 'develop'; 'feature-aja-tests-stages' }
+                anyOf { branch 'master'; branch 'develop'; branch 'feature-aja-tests-stages' }
             }
             /*agent {
                 docker {
@@ -88,7 +88,7 @@ pipeline {
         }
         stage('Integration Tests') {
             when {
-                anyOf { branch 'master'; branch 'develop'; 'feature-aja-tests-stages' }
+                anyOf { branch 'master'; branch 'develop'; branch 'feature-aja-tests-stages' }
             }
             /*agent {
                 docker {
