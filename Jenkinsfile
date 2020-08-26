@@ -177,7 +177,7 @@ pipeline {
         }
         stage('Deploy Artifact To Nexus') {
             when {
-                anyOf { branch 'master'; branch 'develop' }
+                anyOf { branch 'master'; branch 'develop'; branch 'feature-aja-tests-stages' }
             }
             steps {
                 script {
@@ -191,8 +191,7 @@ pipeline {
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
                     artifactPath = filesByGlob[0].path;
-                    // Assign to a boolean response verifying If the artifact name exists
-                    artifactExists = fileExists artifactPath;
+                    // Assign to a boolean response verifying If the artifact name existartifactExists = fileExists artifactPath;
                     if (artifactExists) {
                         nexusArtifactUploader(
                                 nexusVersion: NEXUS_VERSION,
